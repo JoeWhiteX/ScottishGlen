@@ -34,17 +34,17 @@
             label4 = new Label();
             label5 = new Label();
             label6 = new Label();
-            txtSystemName = new ListBox();
-            listBox2 = new ListBox();
-            listBox3 = new ListBox();
-            listBox4 = new ListBox();
-            listBox5 = new ListBox();
-            listBox6 = new ListBox();
             label7 = new Label();
-            dateTimePicker1 = new DateTimePicker();
+            DTP = new DateTimePicker();
             label8 = new Label();
             getSystemInfo = new Button();
             AddAsset = new Button();
+            txtSystemName = new TextBox();
+            txtModel = new TextBox();
+            txtManufacturer = new TextBox();
+            txtType = new TextBox();
+            txtIPAddress = new TextBox();
+            txtNotes = new TextBox();
             SuspendLayout();
             // 
             // label1
@@ -102,81 +102,28 @@
             label6.TabIndex = 5;
             label6.Text = "IP Address";
             // 
-            // txtSystemName
-            // 
-            txtSystemName.FormattingEnabled = true;
-            txtSystemName.ItemHeight = 15;
-            txtSystemName.Location = new Point(117, 119);
-            txtSystemName.Name = "txtSystemName";
-            txtSystemName.Size = new Size(152, 34);
-            txtSystemName.TabIndex = 6;
-            txtSystemName.SelectedIndexChanged += listBox1_SelectedIndexChanged;
-            // 
-            // listBox2
-            // 
-            listBox2.FormattingEnabled = true;
-            listBox2.ItemHeight = 15;
-            listBox2.Location = new Point(117, 181);
-            listBox2.Name = "listBox2";
-            listBox2.Size = new Size(152, 34);
-            listBox2.TabIndex = 7;
-            // 
-            // listBox3
-            // 
-            listBox3.FormattingEnabled = true;
-            listBox3.ItemHeight = 15;
-            listBox3.Location = new Point(117, 237);
-            listBox3.Name = "listBox3";
-            listBox3.Size = new Size(152, 34);
-            listBox3.TabIndex = 8;
-            // 
-            // listBox4
-            // 
-            listBox4.FormattingEnabled = true;
-            listBox4.ItemHeight = 15;
-            listBox4.Location = new Point(117, 302);
-            listBox4.Name = "listBox4";
-            listBox4.Size = new Size(152, 34);
-            listBox4.TabIndex = 9;
-            // 
-            // listBox5
-            // 
-            listBox5.FormattingEnabled = true;
-            listBox5.ItemHeight = 15;
-            listBox5.Location = new Point(117, 370);
-            listBox5.Name = "listBox5";
-            listBox5.Size = new Size(152, 34);
-            listBox5.TabIndex = 10;
-            // 
-            // listBox6
-            // 
-            listBox6.FormattingEnabled = true;
-            listBox6.ItemHeight = 15;
-            listBox6.Location = new Point(117, 487);
-            listBox6.Name = "listBox6";
-            listBox6.Size = new Size(152, 34);
-            listBox6.TabIndex = 11;
-            // 
             // label7
             // 
             label7.AutoSize = true;
-            label7.Location = new Point(22, 435);
+            label7.Location = new Point(648, 119);
             label7.Name = "label7";
             label7.Size = new Size(82, 15);
             label7.TabIndex = 12;
             label7.Text = "Purchase Date";
             // 
-            // dateTimePicker1
+            // DTP
             // 
-            dateTimePicker1.Location = new Point(117, 435);
-            dateTimePicker1.Name = "dateTimePicker1";
-            dateTimePicker1.Size = new Size(200, 23);
-            dateTimePicker1.TabIndex = 13;
+            DTP.CustomFormat = " ";
+            DTP.Format = DateTimePickerFormat.Custom;
+            DTP.Location = new Point(744, 116);
+            DTP.Name = "DTP";
+            DTP.Size = new Size(200, 23);
+            DTP.TabIndex = 13;
             // 
             // label8
             // 
             label8.AutoSize = true;
-            label8.Location = new Point(22, 487);
+            label8.Location = new Point(648, 222);
             label8.Name = "label8";
             label8.Size = new Size(38, 15);
             label8.TabIndex = 14;
@@ -202,22 +149,66 @@
             AddAsset.UseVisualStyleBackColor = true;
             AddAsset.Click += AddAsset_Click;
             // 
+            // txtSystemName
+            // 
+            txtSystemName.Location = new Point(160, 119);
+            txtSystemName.Name = "txtSystemName";
+            txtSystemName.Size = new Size(146, 23);
+            txtSystemName.TabIndex = 17;
+            // 
+            // txtModel
+            // 
+            txtModel.Location = new Point(160, 181);
+            txtModel.Name = "txtModel";
+            txtModel.Size = new Size(146, 23);
+            txtModel.TabIndex = 18;
+            // 
+            // txtManufacturer
+            // 
+            txtManufacturer.Location = new Point(160, 237);
+            txtManufacturer.Name = "txtManufacturer";
+            txtManufacturer.Size = new Size(146, 23);
+            txtManufacturer.TabIndex = 19;
+            // 
+            // txtType
+            // 
+            txtType.Location = new Point(160, 294);
+            txtType.Name = "txtType";
+            txtType.Size = new Size(146, 23);
+            txtType.TabIndex = 20;
+            // 
+            // txtIPAddress
+            // 
+            txtIPAddress.Location = new Point(160, 362);
+            txtIPAddress.Name = "txtIPAddress";
+            txtIPAddress.Size = new Size(146, 23);
+            txtIPAddress.TabIndex = 21;
+            // 
+            // txtNotes
+            // 
+            txtNotes.Location = new Point(744, 219);
+            txtNotes.Multiline = true;
+            txtNotes.Name = "txtNotes";
+            txtNotes.Size = new Size(355, 206);
+            txtNotes.TabIndex = 22;
+            txtNotes.TextChanged += txtNotes_TextChanged;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1176, 739);
+            Controls.Add(txtNotes);
+            Controls.Add(txtIPAddress);
+            Controls.Add(txtType);
+            Controls.Add(txtManufacturer);
+            Controls.Add(txtModel);
+            Controls.Add(txtSystemName);
             Controls.Add(AddAsset);
             Controls.Add(getSystemInfo);
             Controls.Add(label8);
-            Controls.Add(dateTimePicker1);
+            Controls.Add(DTP);
             Controls.Add(label7);
-            Controls.Add(listBox6);
-            Controls.Add(listBox5);
-            Controls.Add(listBox4);
-            Controls.Add(listBox3);
-            Controls.Add(listBox2);
-            Controls.Add(txtSystemName);
             Controls.Add(label6);
             Controls.Add(label5);
             Controls.Add(label4);
@@ -239,16 +230,16 @@
         private Label label4;
         private Label label5;
         private Label label6;
-        private ListBox txtSystemName;
-        private ListBox listBox2;
-        private ListBox listBox3;
-        private ListBox listBox4;
-        private ListBox listBox5;
-        private ListBox listBox6;
         private Label label7;
-        private DateTimePicker dateTimePicker1;
+        private DateTimePicker DTP;
         private Label label8;
         private Button getSystemInfo;
         private Button AddAsset;
+        private TextBox txtSystemName;
+        private TextBox txtModel;
+        private TextBox txtManufacturer;
+        private TextBox txtType;
+        private TextBox txtIPAddress;
+        private TextBox txtNotes;
     }
 }
