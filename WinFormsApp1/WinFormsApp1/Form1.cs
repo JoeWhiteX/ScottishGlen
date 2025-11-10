@@ -11,5 +11,20 @@ namespace WinFormsApp1
         {
 
         }
+
+        private void listBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void getSystemInfo_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AddAsset_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
