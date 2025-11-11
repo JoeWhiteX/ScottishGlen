@@ -45,6 +45,7 @@
             txtType = new TextBox();
             txtIPAddress = new TextBox();
             txtNotes = new TextBox();
+            btnClear = new Button();
             SuspendLayout();
             // 
             // label1
@@ -119,6 +120,7 @@
             DTP.Name = "DTP";
             DTP.Size = new Size(200, 23);
             DTP.TabIndex = 13;
+            DTP.ValueChanged += DTP_ValueChanged;
             // 
             // label8
             // 
@@ -193,11 +195,22 @@
             txtNotes.TabIndex = 22;
             txtNotes.TextChanged += txtNotes_TextChanged;
             // 
+            // btnClear
+            // 
+            btnClear.Location = new Point(787, 618);
+            btnClear.Name = "btnClear";
+            btnClear.Size = new Size(137, 62);
+            btnClear.TabIndex = 23;
+            btnClear.Text = "Clear Fields";
+            btnClear.UseVisualStyleBackColor = true;
+            btnClear.Click += btnClear_Click;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1176, 739);
+            Controls.Add(btnClear);
             Controls.Add(txtNotes);
             Controls.Add(txtIPAddress);
             Controls.Add(txtType);
@@ -241,5 +254,6 @@
         private TextBox txtType;
         private TextBox txtIPAddress;
         private TextBox txtNotes;
+        private Button btnClear;
     }
 }
