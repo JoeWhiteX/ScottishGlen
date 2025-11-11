@@ -45,6 +45,7 @@ namespace WinFormsApp1
                 //Display model and manufacturer details
                 txtModel.Text = obj["Model"]?.ToString();
                 txtManufacturer.Text = obj["Manufacturer"]?.ToString();
+
                 //Store value for switch case
                 systemType = obj["PCSystemType"];
 
@@ -153,12 +154,29 @@ namespace WinFormsApp1
                     cmd.Parameters.AddWithValue("@Manufacturer", txtManufacturer.Text);
                     cmd.Parameters.AddWithValue("@Type", txtType.Text);
                     cmd.Parameters.AddWithValue("@IPAddress", txtIPAddress.Text);
-                    cmd.Parameters.AddWithValue("@PurchaseDate", SqlDbType.Date).Value = DTP.Value.Date;
                     cmd.Parameters.AddWithValue("@Notes", txtNotes.Text);
 
+                    if (DTP.CustomFormat == " ")
+                    {
+                        cmd.Parameters.AddWithValue("@PurchaseDate", DBNull.Value);
+                    }
+                    else
+                    {
+                        cmd.Parameters.AddWithValue("@PurchaseDate", SqlDbType.Date).Value = DTP.Value.Date;
+                    }
+
+
                     //Open connection and execute
-                    conn.Open();
-                    cmd.ExecuteNonQuery();
+                    try
+                    {
+                        conn.Open();
+                        cmd.ExecuteNonQuery();
+                    }
+                    catch (Exception ex)
+                    {
+                        MessageBox.Show($"Error saving asset: {ex.Message}");
+                    }
+                    
 
                 }
             }
