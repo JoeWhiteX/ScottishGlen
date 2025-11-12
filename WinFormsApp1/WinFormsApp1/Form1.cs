@@ -131,6 +131,18 @@ namespace WinFormsApp1
         private void AddAsset_Click(object sender, EventArgs e)
         {
 
+            if (string.IsNullOrWhiteSpace(txtSystemName.Text) ||
+                    string.IsNullOrWhiteSpace(txtModel.Text) ||
+                    string.IsNullOrWhiteSpace(txtType.Text) ||
+                    string.IsNullOrWhiteSpace(txtManufacturer.Text) ||
+                    string.IsNullOrWhiteSpace(txtIPAddress.Text))
+            {
+                MessageBox.Show("Ensure all required fields are filled before adding an asset.");
+                return;
+            }
+                    
+
+
             connectDB();
             MessageBox.Show("Asset Added!");
 
@@ -149,12 +161,14 @@ namespace WinFormsApp1
             {
                 using (SqlCommand cmd = new SqlCommand(saveAsset, conn))
                 {
+                    
                     cmd.Parameters.AddWithValue("@SystemName", txtSystemName.Text);
                     cmd.Parameters.AddWithValue("@Model", txtModel.Text);
                     cmd.Parameters.AddWithValue("@Manufacturer", txtManufacturer.Text);
                     cmd.Parameters.AddWithValue("@Type", txtType.Text);
                     cmd.Parameters.AddWithValue("@IPAddress", txtIPAddress.Text);
                     cmd.Parameters.AddWithValue("@Notes", txtNotes.Text);
+                    
 
                     if (DTP.CustomFormat == " ")
                     {
